@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Example</title>
+    <style>
+        /* Style for the accordion */
+        details {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        summary {
+            background-color: #f5f5f5;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Style to hide the default arrow */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Style for the content inside the accordion */
+        details>div {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <details>
+        <summary>Section 1</summary>
+        <div>
+            <p>This is the content of Section 1.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>Section 2</summary>
+        <div>
+            <p>This is the content of Section 2.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>Section 3</summary>
+        <div>
+            <p>This is the content of Section 3.</p>
+        </div>
+    </details>
+
+</body>
+
+</html>
