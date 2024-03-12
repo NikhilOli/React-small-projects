@@ -1,12 +1,10 @@
 import React from 'react'
-import Todo from './Todo'
 
 const App = () => {
   return (
     <div>
-      <Todo />
-      
-    </div>
+      <h2 className='bg-slate-700 text-black'>ProdcTApi</h2>
+      </div>
   )
 }
 
