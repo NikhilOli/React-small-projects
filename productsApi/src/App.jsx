@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 const Navbar = () => {
+  const handleInputChange = (e) => {
+    handleSearch(e.target.value);
+  };
   return (
     <div className="bg-[#F4EEFF] py-6">
       <div className='container md:mx-4 justify-around flex md:justify-evenly items-center'>
@@ -11,6 +14,7 @@ const Navbar = () => {
             placeholder='Search Here...'
             id="search"
             className="border w-[40vw] border-[#DCD6F7] rounded px-3 py-1 focus:outline-none"
+            onChange={handleInputChange}
           />
           <button className="bg-[#A6B1E1] text-black  px-4 py-1 rounded">Search</button>
         </div>
@@ -29,9 +33,14 @@ const Navbar = () => {
 
 const App = () => {
   const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   useEffect(() => {
     getProducts();
-  }, [])
+  }, [searchQuery])
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
   const Home = () => {
     return (
       <div className="container mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -53,7 +62,8 @@ const App = () => {
   };
 
   const getProducts = async () => {
-    const response = await fetch("https://dummyjson.com/products");
+    const apiUrl = searchQuery ? `https://dummyjson.com/products/search?q=${searchQuery}` : 'https://dummyjson.com/products';
+    const response = await fetch(apiUrl);
     const data = await response.json();
     const productsArray = data.products;
     setProducts(productsArray)
@@ -62,7 +72,7 @@ const App = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar handleSearch={handleSearch} />
       <Home />
     </div>
   )
