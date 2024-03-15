@@ -4,9 +4,7 @@ const Navbar = ({ setSearchQuery }) => {
 
     const handleSearch = () => {
         setSearchQuery(searchInput);
-        console.log('Search query:', searchInput); // Log search query
-        setSearchInput(''); // Reset search input to an empty string
-        console.log('Search input reset to empty string'); // Log confirmation
+        setSearchInput('');
     };
     return (
         <div className="bg-[#F4EEFF] py-6">

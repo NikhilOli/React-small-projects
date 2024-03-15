@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { BeatLoader } from "react-spinners";
 
 const Home = ({ searchQuery }) => {
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const getProducts = async () => {
             let apiUrl = 'https://dummyjson.com/products';
@@ -12,13 +14,18 @@ const Home = ({ searchQuery }) => {
             const data = await response.json();
             const productsArray = data.products;
             setFilteredProducts(productsArray);
+            setLoading(false);
         };
 
         getProducts();
     }, [searchQuery]);
     return (
         <div className="container mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
+            {loading && (
+                <div className="flex justify-center items-center w-screen h-screen border-2" style={{ marginTop: "-20vh" }}>
+                    <BeatLoader color="#142930" />
+                </div>
+            )}
             {
                 filteredProducts.map(({ id, thumbnail, description, title, price }) => (
                     <div key={id} className="bg-white p-4 rounded-md shadow-md md:w-[24vw] w-[70vw] mx-auto max-h-max hover:scale-105 duration-150 cursor-pointer">
