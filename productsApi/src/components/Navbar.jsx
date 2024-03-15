@@ -1,19 +1,10 @@
 import { useState, useEffect } from "react";
-const Navbar = ({ setProduct }) => {
+const Navbar = ({ setSearchQuery }) => {
+    const [searchInput, setSearchInput] = useState('');
 
-    const [searchQuery, setSearchQuery] = useState('');
-    const getSearchedProduct = async () => {
-        const apiUrl = `https://dummyjson.com/products/search?q=${searchQuery}`;
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        const productsArray = data.products;
-        setProduct(productsArray);
-    };
     const handleSearch = () => {
-        getSearchedProduct();
-    }
-    useEffect(() => {
-    }, [searchQuery])
+        setSearchQuery(searchInput);
+    };
     return (
         <div className="bg-[#F4EEFF] py-6">
             <div className='container md:mx-4 justify-around flex md:justify-evenly items-center'>
@@ -26,7 +17,7 @@ const Navbar = ({ setProduct }) => {
                         placeholder='Search Here...'
                         id="search"
                         className="border w-[40vw] border-[#DCD6F7] rounded px-3 py-1 focus:outline-none"
-                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onChange={(e) => setSearchInput(e.target.value)}
                     />
                     <button onClick={handleSearch} className="bg-[#A6B1E1] text-black  px-4 py-1 rounded">Search</button>
                 </div>
