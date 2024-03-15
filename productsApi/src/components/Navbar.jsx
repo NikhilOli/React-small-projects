@@ -4,6 +4,9 @@ const Navbar = ({ setSearchQuery }) => {
 
     const handleSearch = () => {
         setSearchQuery(searchInput);
+        console.log('Search query:', searchInput); // Log search query
+        setSearchInput(''); // Reset search input to an empty string
+        console.log('Search input reset to empty string'); // Log confirmation
     };
     return (
         <div className="bg-[#F4EEFF] py-6">
@@ -15,7 +18,6 @@ const Navbar = ({ setSearchQuery }) => {
                         type="search"
                         name="search"
                         placeholder='Search Here...'
-                        id="search"
                         className="border w-[40vw] border-[#DCD6F7] rounded px-3 py-1 focus:outline-none"
                         onChange={(e) => setSearchInput(e.target.value)}
                     />
