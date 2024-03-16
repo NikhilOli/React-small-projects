@@ -26,6 +26,9 @@ const Home = ({ searchQuery }) => {
                     <BeatLoader color="#142930" />
                 </div>
             )}
+            {filteredProducts.length === 0 && !loading && (
+                <div className="text-black">No Results found..</div>
+            )}
             {
                 filteredProducts.map(({ id, thumbnail, description, title, price }) => (
                     <div key={id} className="bg-white p-4 rounded-md shadow-md md:w-[24vw] w-[70vw] mx-auto max-h-max hover:scale-105 duration-150 cursor-pointer">

@@ -7,6 +7,10 @@ const Navbar = ({ setSearchQuery }) => {
         setSearchQuery(searchInput);
         setSearchInput('');
     };
+    const handleHomeClick = () => {
+        setSearchQuery('');
+        setSearchInput('');
+    };
     return (
         <div className="bg-[#F4EEFF] py-6">
             <div className='container md:mx-4 justify-around flex md:justify-evenly items-center'>
@@ -23,7 +27,7 @@ const Navbar = ({ setSearchQuery }) => {
                     <button onClick={handleSearch} className="bg-[#A6B1E1] text-black  px-4 py-1 rounded">Search</button>
                 </div>
                 <ul className="hidden md:flex space-x-4">
-                    <Link to='/' className="text-[#424874] cursor-pointer hover:text-[#a9afe1]">Home</Link>
+                    <Link to='/' onClick={handleHomeClick} className="text-[#424874] cursor-pointer hover:text-[#a9afe1]">Home</Link>
                     <Link to='/about' className="text-[#424874] cursor-pointer hover:text-[#9b9fc2]">About</Link>
                     <Link to='/contact' className="text-[#424874] cursor-pointer hover:text-[#9a9fc6]">Contact</Link>
                 </ul>
