@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 const Navbar = ({ setSearchQuery }) => {
     const [searchInput, setSearchInput] = useState('');
 
     const handleSearch = () => {
-        setSearchQuery(searchInput);
+        setSearchQuery(searchInput)
         setSearchInput('');
     };
     const handleHomeClick = () => {

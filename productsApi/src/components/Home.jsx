@@ -27,7 +27,7 @@ const Home = ({ searchQuery }) => {
                 </div>
             )}
             {filteredProducts.length === 0 && !loading && (
-                <div className="text-black">No Results found..</div>
+                <div className="text-black flex items-center justify-center w-screen  text-2xl font-bold">No Results found..</div>
             )}
             {
                 filteredProducts.map(({ id, thumbnail, description, title, price }) => (
