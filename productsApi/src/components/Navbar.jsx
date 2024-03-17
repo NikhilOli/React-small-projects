@@ -30,6 +30,7 @@ const Navbar = ({ setSearchQuery }) => {
                     <Link to='/' onClick={handleHomeClick} className="text-[#424874] cursor-pointer hover:text-[#a9afe1]">Home</Link>
                     <Link to='/about' className="text-[#424874] cursor-pointer hover:text-[#9b9fc2]">About</Link>
                     <Link to='/contact' className="text-[#424874] cursor-pointer hover:text-[#9a9fc6]">Contact</Link>
+                    <Link to='/cart' className="text-[#424874] cursor-pointer hover:text-[#9a9fc6]">Cart</Link>
                 </ul>
             </div>
         </div>
