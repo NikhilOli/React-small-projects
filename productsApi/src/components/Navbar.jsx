@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import ProductContext from "../context/ProductContext";
 const Navbar = ({ setSearchQuery }) => {
+    const { cartCount } = useContext(ProductContext)
     const [searchInput, setSearchInput] = useState('');
-
     const handleSearch = () => {
         setSearchQuery(searchInput)
         setSearchInput('');
@@ -11,6 +12,7 @@ const Navbar = ({ setSearchQuery }) => {
         setSearchQuery('');
         setSearchInput('');
     };
+
     return (
         <div className="bg-[#F4EEFF] py-6">
             <div className='container md:mx-4 justify-around flex md:justify-evenly items-center'>
@@ -30,7 +32,8 @@ const Navbar = ({ setSearchQuery }) => {
                     <Link to='/' onClick={handleHomeClick} className="text-[#424874] cursor-pointer hover:text-[#a9afe1]">Home</Link>
                     <Link to='/about' className="text-[#424874] cursor-pointer hover:text-[#9b9fc2]">About</Link>
                     <Link to='/contact' className="text-[#424874] cursor-pointer hover:text-[#9a9fc6]">Contact</Link>
-                    <Link to='/cart' className="text-[#424874] cursor-pointer hover:text-[#9a9fc6]">Cart</Link>
+                    <Link to='/cart' className="text-[#424874] cursor-pointer relative hover:text-[#9a9fc6]">Cart
+                    <span className="">{cartCount}</span></Link>
                 </ul>
             </div>
         </div>

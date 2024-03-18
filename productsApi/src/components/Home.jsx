@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { BeatLoader } from "react-spinners";
+import ProductContext from '../context/ProductContext'
+
 
 const Home = ({ searchQuery }) => {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { addToCart, getCount } = useContext(ProductContext)
     useEffect(() => {
         const getProducts = async () => {
             let apiUrl = 'https://dummyjson.com/products';
@@ -39,7 +42,7 @@ const Home = ({ searchQuery }) => {
                         </div>
                         <div className="mt-4 flex justify-between items-center">
                             <p className="text-lg font-semibold text-[#424874]">Price: ${price}</p>
-                            <button className="bg-[#A6B1E1] text-black px-4 py-1 rounded hover:bg-[#7881aa] hover:text-white">Buy Now</button>
+                            <button onClick={() => { addToCart({ id, thumbnail, description, title, price }); getCount(); }} className="bg-[#A6B1E1] text-black font-bold px-4 py-1 rounded hover:bg-[#7881aa] hover:text-white">Add to Cart</button>
                         </div>
                     </div>
                 ))
