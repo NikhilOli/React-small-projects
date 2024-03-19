@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { BeatLoader } from "react-spinners";
 import ProductContext from '../context/ProductContext'
+import { Toaster, toast } from 'sonner'
 
 
 const Home = ({ searchQuery }) => {
@@ -28,6 +29,7 @@ const Home = ({ searchQuery }) => {
     }, [getCount]);
     return (
         <div className="container mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Toaster position="top-right" richColors />
             {loading && (
                 <div className="flex justify-center items-center w-screen h-screen border-2" style={{ marginTop: "-20vh" }}>
                     <BeatLoader color="#142930" />
@@ -46,7 +48,9 @@ const Home = ({ searchQuery }) => {
                         </div>
                         <div className="mt-4 flex justify-between items-center">
                             <p className="text-lg font-semibold text-[#424874]">Price: ${price}</p>
-                            <button onClick={() => { addToCart({ id, thumbnail, description, title, price }); getCount(); }} className="bg-[#A6B1E1] text-black font-bold px-4 py-1 rounded hover:bg-[#7881aa] hover:text-white">Add to Cart</button>
+
+                            <button onClick={() => { addToCart({ id, thumbnail, description, title, price }); getCount(); toast.success('Item added successfully'); }} className="bg-[#A6B1E1] text-black font-bold px-4 py-1 rounded hover:bg-[#7881aa] hover:text-white">Add to Cart </button>
+
                         </div>
                     </div>
                 ))
