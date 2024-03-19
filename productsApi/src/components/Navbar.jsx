@@ -20,7 +20,7 @@ const Navbar = ({ setSearchQuery }) => {
 
     return (
         <div className="bg-[#F4EEFF] py-6">
-            <div className='container md:mx-4 justify-around flex md:justify-evenly items-center fixed'>
+            <div className='container md:mx-4 justify-around flex md:justify-evenly items-center'>
                 <h1 className="text-2xl font-semibold text-[#616ea4] cursor-pointer">ProductsAny</h1>
                 <div className="flex items-center space-x-4">
                     <input

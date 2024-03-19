@@ -2,8 +2,16 @@ import React, { useContext, useState, useEffect } from 'react'
 import ProductContext from '../context/ProductContext'
 
 const Cart = () => {
-    const { cart, setCart } = useContext(ProductContext)
+    const { cart, setCart, getCount } = useContext(ProductContext)
     const [cartCount, setCartCount] = useState(0);
+    function removeCart(itemId) {
+        setCart(prevCart => prevCart.filter(item => item.id !== itemId));
+    }
+    useEffect(
+        () => {
+            getCount();
+        }
+    )
     return (
 
         <div className="container mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -17,7 +25,7 @@ const Cart = () => {
                         </div>
                         <div className="mt-4 flex justify-between items-center">
                             <p className="text-lg font-semibold text-[#424874]">Price: ${price}</p>
-                            <button onClick={(product) => addToCart(product)} className="bg-[#A6B1E1] text-black font-bold px-4 py-1 rounded hover:bg-[#7881aa] hover:text-white">Add to Cart</button>
+                            <button onClick={() => removeCart(id)} className="bg-[#A6B1E1] text-black font-bold px-4 py-1 rounded hover:bg-[#7881aa] hover:text-white">Remove from Cart</button>
                         </div>
                     </div>
                 ))
