@@ -14,9 +14,10 @@ const Cart = () => {
         }
     )
     return (
-
+        <>
+        <Toaster position="top-right" richColors />
         <div className="container mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Toaster position="top-right" richColors />
+            
             {
                 cart.map(({ id, thumbnail, description, title, price }) => (
                     <div key={id} className="bg-white p-4 rounded-md shadow-md md:w-[24vw] w-[70vw] mx-auto max-h-max hover:scale-105 duration-150 cursor-pointer">
@@ -33,6 +34,7 @@ const Cart = () => {
                 ))
             }
         </div>
+            </>
     )
 }
 
