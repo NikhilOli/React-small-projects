@@ -28,7 +28,7 @@ const Home = ({ searchQuery }) => {
     }, [getCount]);
     return (
         <>
-            <Toaster position="top-right" richColors />
+            <Toaster position="bottom-right" richColors />
             <div className="container mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {loading && (
                     <div className="flex justify-center items-center w-screen h-screen border-2" style={{ marginTop: "-20vh" }}>
